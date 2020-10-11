@@ -28,6 +28,12 @@ func (s *Subscription) Create(data map[string]interface{}, extraHeaders map[stri
 	return s.Request.Post(constants.SUBSCRIPTION_URL, data, extraHeaders)
 }
 
+// Update updates existing subscription for the given subscriptionID and data.
+func (s *Subscription) Update(subscriptionID string, data map[string]interface{}, extraHeaders map[string]string) (map[string]interface{}, error) {
+  url := fmt.Sprintf("%s/%s", constants.SUBSCRIPTION_URL, subscriptionID)
+  return s.Request.Patch(url, data, extraHeaders)
+}
+
 // Cancel cancels a subscription having the given subscriptionID.
 func (s *Subscription) Cancel(subscriptionID string, data map[string]interface{}, extraHeaders map[string]string) (map[string]interface{}, error) {
 	url := fmt.Sprintf("%s/%s/cancel", constants.SUBSCRIPTION_URL, subscriptionID)
