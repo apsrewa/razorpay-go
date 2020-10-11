@@ -1,4 +1,4 @@
-module github.com/razorpay/razorpay-go
+module github.com/apsrewa/razorpay-go
 
 go 1.14
 
